@@ -39,7 +39,7 @@ Tabs.InfoScript:AddParagraph({
 
 local UpdatesSection = Tabs.InfoScript:AddSection("Updates")
 Tabs.InfoScript:AddParagraph({
-    Title = "Updates 🟢",
+    Title = "Updates ðŸŸ¢",
     Content = "- 7/11/2024"
 })
 
@@ -221,7 +221,7 @@ Toggle:OnChanged(function()
         if closestPlayer then
             if closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 local targetPosition = closestPlayer.Character.HumanoidRootPart.Position
-                game.Players.LocalPlayer.Character.Humanoid:MoveTo(targetPosition)  -- Mover o personagem at� a posi��o do jogador mais pr�ximo
+                game.Players.LocalPlayer.Character.Humanoid:MoveTo(targetPosition)  -- Mover o personagem atï¿½ a posiï¿½ï¿½o do jogador mais prï¿½ximo
             end
         end
     end
@@ -276,8 +276,8 @@ local function addESP(player)
     highlight.Adornee = player.Character
     highlight.FillColor = Color3.fromRGB(255, 0, 0)  -- Cor de preenchimento (vermelha)
     highlight.OutlineColor = Color3.fromRGB(255, 255, 255)  -- Cor do contorno (branca)
-    highlight.OutlineTransparency = 0.5  -- Transpar�ncia do contorno
-    highlight.FillTransparency = 0.2  -- Transpar�ncia do preenchimento
+    highlight.OutlineTransparency = 0.5  -- Transparï¿½ncia do contorno
+    highlight.FillTransparency = 0.2  -- Transparï¿½ncia do preenchimento
     highlight.Enabled = true
 end
 
@@ -461,7 +461,7 @@ local runningScripts2 = {}
 local runningScripts3 = {}
 local runningScripts4 = {}
 
--- Função para iniciar a execução contínua de uma habilidade
+-- FunÃ§Ã£o para iniciar a execuÃ§Ã£o contÃ­nua de uma habilidade
 local function startLoop(skillName, serviceName, scriptTable, extraArgs)
     if scriptTable[skillName] then return end
     scriptTable[skillName] = true
@@ -473,17 +473,17 @@ local function startLoop(skillName, serviceName, scriptTable, extraArgs)
                 args = extraArgs
             end
             game:GetService("ReplicatedStorage"):WaitForChild("Knit"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild(serviceName):WaitForChild("RE"):WaitForChild("Activated"):FireServer(unpack(args))
-            wait(0.1)  -- Intervalo entre execuções
+            wait(0.1)  -- Intervalo entre execuÃ§Ãµes
         end
     end)
 end
 
--- Função para parar a execução contínua de uma habilidade
+-- FunÃ§Ã£o para parar a execuÃ§Ã£o contÃ­nua de uma habilidade
 local function stopLoop(skillName, scriptTable)
     scriptTable[skillName] = nil
 end
 
--- Lógica para o Dropdown 1 (Skills 1)
+-- LÃ³gica para o Dropdown 1 (Skills 1)
 SkillsDropdown1:OnChanged(function(Value)
     if Value["LapseBlue"] then
         startLoop("LapseBlue", "LapseBlueService", runningScripts1)
@@ -510,7 +510,7 @@ SkillsDropdown1:OnChanged(function(Value)
     end
 end)
 
--- Lógica para o Dropdown 2 (Skills 2)
+-- LÃ³gica para o Dropdown 2 (Skills 2)
 SkillsDropdown2:OnChanged(function(Value)
     if Value["CursedStrikes"] then
         startLoop("CursedStrikes", "CursedStrikesService", runningScripts2)
@@ -537,7 +537,7 @@ SkillsDropdown2:OnChanged(function(Value)
     end
 end)
 
--- Lógica para o Dropdown 3 (Skills 3)
+-- LÃ³gica para o Dropdown 3 (Skills 3)
 SkillsDropdown3:OnChanged(function(Value)
     if Value["ReserveBall"] then
         startLoop("ReserveBall", "ReserveBallService", runningScripts3)
@@ -564,7 +564,7 @@ SkillsDropdown3:OnChanged(function(Value)
     end
 end)
 
--- Lógica para o Dropdown 4 (Skills 4)
+-- LÃ³gica para o Dropdown 4 (Skills 4)
 SkillsDropdown4:OnChanged(function(Value)
     if Value["RabbitEscape"] then
         local args = {
@@ -597,23 +597,23 @@ local Toggle = Tabs.Main:AddToggle("AutoFarmToggle", {
 local isAutoFarming = false
 local targetPlayer = nil
 
--- Função para obter um jogador aleatório
+-- FunÃ§Ã£o para obter um jogador aleatÃ³rio
 local function getRandomPlayer()
     local players = game.Players:GetPlayers()
     local otherPlayers = {}
 
-    -- Filtra os jogadores que não sejam o próprio jogador
+    -- Filtra os jogadores que nÃ£o sejam o prÃ³prio jogador
     for _, p in ipairs(players) do
         if p ~= game.Players.LocalPlayer and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
             table.insert(otherPlayers, p)
         end
     end
 
-    -- Retorna um jogador aleatório
+    -- Retorna um jogador aleatÃ³rio
     return #otherPlayers > 0 and otherPlayers[math.random(1, #otherPlayers)] or nil
 end
 
--- Função para teleportar e alinhar o personagem atrás do jogador alvo
+-- FunÃ§Ã£o para teleportar e alinhar o personagem atrÃ¡s do jogador alvo
 local function teleportToTarget()
     if targetPlayer and targetPlayer.Character then
         local targetCharacter = targetPlayer.Character
@@ -623,8 +623,8 @@ local function teleportToTarget()
         if targetRootPart then
             local humanoidRootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 
-            -- Posiciona o personagem atrás do jogador alvo (com distância ajustada)
-            local offset = targetRootPart.CFrame * CFrame.new(0, 0, 2)  -- Distância ajustada para ficar atrás
+            -- Posiciona o personagem atrÃ¡s do jogador alvo (com distÃ¢ncia ajustada)
+            local offset = targetRootPart.CFrame * CFrame.new(0, 0, 2)  -- DistÃ¢ncia ajustada para ficar atrÃ¡s
             humanoidRootPart.CFrame = CFrame.new(offset.Position)
 
             -- Faz o personagem ficar virado para o alvo
@@ -632,12 +632,12 @@ local function teleportToTarget()
             humanoidRootPart.CFrame = CFrame.new(humanoidRootPart.Position, targetRootPart.Position + direction)
         end
     else
-        -- Se o jogador alvo não existe, escolhe um novo alvo
+        -- Se o jogador alvo nÃ£o existe, escolhe um novo alvo
         targetPlayer = getRandomPlayer()
     end
 end
 
--- Função para monitorar a morte do jogador e trocar de alvo
+-- FunÃ§Ã£o para monitorar a morte do jogador e trocar de alvo
 local function monitorPlayerDeath()
     if targetPlayer and targetPlayer.Character then
         targetPlayer.Character:WaitForChild("Humanoid").Died:Connect(function()
@@ -647,15 +647,15 @@ local function monitorPlayerDeath()
     end
 end
 
--- Controle da lógica do toggle
+-- Controle da lÃ³gica do toggle
 Toggle:OnChanged(function()
     if Toggle.Value then
-        print("Auto Farm ativado")  -- Mensagem de debug para ativação
+        print("Auto Farm ativado")  -- Mensagem de debug para ativaÃ§Ã£o
         targetPlayer = getRandomPlayer()  -- Seleciona um alvo inicial
-        monitorPlayerDeath()  -- Inicia a monitoração da morte do jogador alvo
+        monitorPlayerDeath()  -- Inicia a monitoraÃ§Ã£o da morte do jogador alvo
         isAutoFarming = true
     else
-        print("Auto Farm desativado")  -- Mensagem de debug para desativação
+        print("Auto Farm desativado")  -- Mensagem de debug para desativaÃ§Ã£o
         isAutoFarming = false
         targetPlayer = nil  -- Reseta o alvo ao desativar
     end
@@ -668,7 +668,7 @@ spawn(function()
             if targetPlayer then
                 teleportToTarget()  -- Teleporta para o jogador atual
             else
-                targetPlayer = getRandomPlayer()  -- Se o alvo não existe mais, escolhe um novo
+                targetPlayer = getRandomPlayer()  -- Se o alvo nÃ£o existe mais, escolhe um novo
             end
         end
         wait(0.1)  -- Atualiza frequentemente para garantir que o personagem siga o alvo e fique virado para ele
@@ -680,24 +680,24 @@ local Dropdown = Tabs.Main:AddDropdown("PlayerDropdown", {
     Title = "Select Player",
     Values = {},  -- Lista de valores vazia inicialmente
     Multi = false,
-    Default = 1,  -- Sele��o padr�o
+    Default = 1,  -- Seleção padrão
 })
 
--- Fun��o para obter a lista de jogadores do servidor
+-- Função para obter a lista de jogadores do servidor
 local function updatePlayerList()
     local players = game.Players:GetPlayers()
     local playerNames = {}
 
     for _, p in ipairs(players) do
         if p ~= game.Players.LocalPlayer and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
-            table.insert(playerNames, p.Name)  -- Adiciona o nome do jogador � lista
+            table.insert(playerNames, p.Name)  -- Adiciona o nome do jogador à lista
         end
     end
 
     Dropdown:SetValues(playerNames)  -- Atualiza os valores do Dropdown com os nomes dos jogadores
 end
 
--- Atualiza a lista de jogadores sempre que houver uma mudan�a de jogador no servidor
+-- Atualiza a lista de jogadores sempre que houver uma mudança de jogador no servidor
 game.Players.PlayerAdded:Connect(function(player)
     updatePlayerList()
 end)
@@ -709,23 +709,23 @@ end)
 -- Inicializa a lista de jogadores ao carregar o script
 updatePlayerList()
 
--- Vari�vel para armazenar o jogador selecionado
+-- Variável para armazenar o jogador selecionado
 local selectedPlayer = nil
 
--- Atualiza a vari�vel selectedPlayer quando o Dropdown � alterado
+-- Atualiza a variável selectedPlayer quando o Dropdown é alterado
 Dropdown:OnChanged(function(Value)
     selectedPlayer = game.Players:FindFirstChild(Value)
     print("Selecionado jogador:", Value)
 end)
 
--- Fun��o para teleportar e alinhar o personagem
+-- Função para teleportar e alinhar o personagem
 local function teleportToSelectedPlayer()
     if selectedPlayer and selectedPlayer.Character then
         local targetRootPart = selectedPlayer.Character:FindFirstChild("HumanoidRootPart")
         if targetRootPart then
             local humanoidRootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
             -- Posiciona o personagem nas costas do jogador alvo
-            local offset = targetRootPart.CFrame * CFrame.new(0, 0, 2)  -- Dist�ncia ajustada para ficar atr�s
+            local offset = targetRootPart.CFrame * CFrame.new(0, 0, 2)  -- Distância ajustada para ficar atrás
             humanoidRootPart.CFrame = CFrame.new(offset.Position)
             -- Faz o personagem ficar virado para o alvo
             local direction = (targetRootPart.Position - humanoidRootPart.Position).unit
@@ -733,15 +733,15 @@ local function teleportToSelectedPlayer()
             print("Teleportado para:", selectedPlayer.Name)
         end
     else
-        print("Nenhum jogador selecionado ou o jogador n�o est� dispon�vel.")
+        print("Nenhum jogador selecionado ou o jogador não está disponível.")
     end
 end
 
--- Bot�o para executar o teleporte para o jogador selecionado
+-- Botão para executar o teleporte para o jogador selecionado
 Tabs.Main:AddButton({
     Title = "Teleport to Selected Player",
     Callback = function()
-        teleportToSelectedPlayer()  -- Executa o teleporte apenas quando o bot�o � pressionado
+        teleportToSelectedPlayer()  -- Executa o teleporte apenas quando o botão é pressionado
     end
 })
 
